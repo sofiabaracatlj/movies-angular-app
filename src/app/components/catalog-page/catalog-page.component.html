@@ -1,0 +1,26 @@
+<div class="form">
+  <form class="full-width">
+    <mat-form-field class="full-width">
+      <mat-label>Pesquisar Filme</mat-label>
+      <input
+        (keyup.enter)="searchMovie()"
+        type="text"
+        matInput
+        [formControl]="searchFormControl"
+        placeholder="Nome do filme"
+      />
+    </mat-form-field>
+  </form>
+  <button *ngIf="(searched | async) === false" (click)="searchMovie()" mat-fab color="primary">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button *ngIf="(searched | async) === true" (click)="cleanSearch()" mat-fab color="primary">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<app-movies-card-list
+  (changePageEvent)="handlePageChange($event)"
+  [moviesList]="movies$ | async"
+  [totalPages]="totalPages"
+></app-movies-card-list>

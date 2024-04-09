@@ -1,0 +1,19 @@
+<mat-card *ngIf="movie">
+    <img mat-card-image width="100%" src="https://image.tmdb.org/t/p/w500/{{movie?.backdrop_path}} | SafeUrlPipe">
+    <mat-card-title>
+        {{movie?.title}}
+    </mat-card-title>
+    <div class="description">
+        <span class="genres" *ngFor="let genre of movie.genres; index as i">
+            {{ genre.name }}
+            {{ i === movie.genres.length - 1 ? "" : ", " }}
+            <!-- &nbsp; -->
+          </span>
+    </div>
+    <div class="description release-date">
+        Lançado em {{getDataFormat(movie)}}
+    </div>
+    <mat-card-actions align="end">
+        <button (click)="openDialog(movie)" color="primary" mat-flat-button>Ver Mais</button>
+    </mat-card-actions>
+</mat-card>

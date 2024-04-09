@@ -23,10 +23,12 @@
       "dom"
     ]
   },
+  "suppressImplicitAnyIndexErrors": true,
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": ["**/*.test-d.ts"],
 }

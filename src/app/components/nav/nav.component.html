@@ -1,0 +1,6 @@
+
+    <div class="menu" [ngClass]="isMobile ? 'mobile-menu' : 'desktop-menu' ">
+        <button [ngClass]="{'selected-button': (pageEmitter | async) == ''}" mat-button (click)="goToPage('/')">Catálogo</button>
+        <button [ngClass]="{'selected-button': (pageEmitter | async) == 'ranking'}" mat-button (click)="goToPage('ranking')">Ranking</button>
+    </div>
+

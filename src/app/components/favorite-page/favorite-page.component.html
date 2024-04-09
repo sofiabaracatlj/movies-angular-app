@@ -1,0 +1,12 @@
+<div class="buttons-line">
+    <button [ngClass]="{'selected-button' : (sortEmitter$ | async) == 'desc' }" (click)="handleSort('desc')" mat-stroked-button color="accent" >
+        Mais Novo
+        <mat-icon>arrow_upward</mat-icon>
+      </button>
+
+      <button [ngClass]="{'selected-button' : (sortEmitter$ | async) == 'asc' }" (click)="handleSort('desc')" (click)="handleSort('asc')" mat-stroked-button color="accent" >
+        Mais Velho
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
+</div>
+<app-movies-card-list [actualPage]="actualPage" (changePageEvent)="handlePageChange($event)" [moviesList]="movies$ | async" [totalPages]="totalPages"></app-movies-card-list>

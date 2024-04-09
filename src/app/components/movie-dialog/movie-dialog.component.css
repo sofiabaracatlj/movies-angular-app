@@ -1,0 +1,13 @@
+.close-icon{
+    position: absolute;
+
+    z-index: 2001;
+}
+
+.close-icon-position-desktop{
+    right: 40px;
+}
+
+.close-icon-position-mobile{
+    right: 10px;
+}

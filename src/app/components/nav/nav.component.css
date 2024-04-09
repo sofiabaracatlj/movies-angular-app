@@ -1,0 +1,23 @@
+.menu{
+    background-color: #e7e7e7;
+}
+
+.desktop-menu{
+    display: flex;
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    flex-direction: column;
+}
+
+.mobile-menu{
+    height: 56px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.selected-button {
+    background: lightgrey;
+}

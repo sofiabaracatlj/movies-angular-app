@@ -1,0 +1,35 @@
+<div *ngIf="moviesList?.length; else noMovies">
+  <mat-grid-list
+    #gridView
+    gutterSize="10"
+    rowHeight="{{rowHeight}}"
+    cols="{{ setColNum() }}"
+  >
+    <ng-container *ngFor="let movie of moviesList; index as index">
+      <mat-grid-tile>
+        <app-catalog-card
+          *ngIf="isCatalog; else horizontalCard"
+          [movie]="movie"
+        ></app-catalog-card>
+        <ng-template #horizontalCard>
+          <app-horizontal-card
+            class="full-width"
+            [position]="index + 1 + actualPage * itensPerPage"
+            [movie]="movie"
+          ></app-horizontal-card>
+        </ng-template>
+      </mat-grid-tile>
+    </ng-container>
+  </mat-grid-list>
+
+  <mat-paginator
+    [length]="totalPages"
+    [pageSize]="itensPerPage"
+    aria-label="Select page"
+    (page)="handlePageChange($event)"
+  >
+  </mat-paginator>
+</div>
+<ng-template  #noMovies>
+  <div *ngIf="(loadingService.loading$ | async) === false">Não há filmes para mostrar</div>
+</ng-template>

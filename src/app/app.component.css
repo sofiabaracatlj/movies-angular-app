@@ -1,0 +1,12 @@
+.container-desktop{
+    margin: 20px 20px 20px 100px;
+}
+
+.container-mobile{
+    margin: 20px 20px;
+}
+
+.app{
+    position: relative;
+    min-height: 100vh;
+}

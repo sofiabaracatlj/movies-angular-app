@@ -1,0 +1,25 @@
+.description{
+   display: flex;
+   flex-direction: column;
+   
+}
+
+mat-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 140px;
+    align-items: center;
+}
+
+mat-card-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    font-size: 16px;
+}
+
+.description, mat-card-title{
+    padding: 0 8px;
+}

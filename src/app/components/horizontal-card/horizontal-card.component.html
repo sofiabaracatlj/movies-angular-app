@@ -1,0 +1,38 @@
+<mat-card *ngIf="movie">
+  <img
+    width="100px"
+    height="100px"
+    src="https://image.tmdb.org/t/p/w500/{{
+      movie?.backdrop_path
+    }} | SafeUrlPipe"
+  />
+  <div class="description">
+    <div *ngIf="isRankedPage">
+      {{ position }}º
+    </div>
+    <b>
+      {{ movie?.title }}
+    </b>
+    <div>
+      <span *ngFor="let genre of movie.genres; index as i">
+        {{ genre.name }}
+        {{ i === movie.genres.length - 1 ? "" : "," }}
+        &nbsp;
+      </span>
+    </div>
+  </div>
+  <mat-card-actions align="end">
+    <button
+      *ngIf="isRankedPage; else deleteFromList"
+      mat-button
+      (click)="searchInCatalog(movie)"
+    >
+      Ver no Catálogo
+    </button>
+    <ng-template #deleteFromList>
+      <button (click)="revomeFavoriteMovie(movie)" mat-fab color="primary">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </ng-template>
+  </mat-card-actions>
+</mat-card>
